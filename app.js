@@ -1,6 +1,7 @@
 //	Requirements
 // dbURL = 'mongodb://localhost:27017/yelpCamp'
 // dbURL = 'mongodb://localhost/yelpCamp'
+// dbURL = 'mongodb+srv://tiddal:golden96@cluster0-pzjtz.mongodb.net/test?retryWrites=true&w=majority'
 const path = require('path'),
 	bodyParser = require('body-parser'),
 	mongoose = require('mongoose'),
@@ -8,8 +9,6 @@ const path = require('path'),
 	passport = require('passport'),
 	methodOverride = require('method-override'),
 	localStrategy = require('passport-local'),
-	dbURL =
-		'mongodb+srv://tiddal:golden96@cluster0-pzjtz.mongodb.net/test?retryWrites=true&w=majority',
 	port = process.env.PORT || 3000,
 	express = require('express'),
 	expressSession = require('express-session'),
