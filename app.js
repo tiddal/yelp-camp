@@ -9,7 +9,7 @@ const path = require('path'),
 	methodOverride = require('method-override'),
 	localStrategy = require('passport-local'),
 	dbURL =
-		'mongodb+srv://tiddal:yelpcamp@cluster0-pzjtz.mongodb.net/test?retryWrites=true&w=majority',
+		'mongodb+srv://tiddal:golden96@cluster0-pzjtz.mongodb.net/test?retryWrites=true&w=majority',
 	port = process.env.PORT || 3000,
 	express = require('express'),
 	expressSession = require('express-session'),
