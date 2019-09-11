@@ -19,7 +19,10 @@ const path = require('path'),
 //seedDB();
 //	Setup
 mongoose
-	.connect(dbURL, { useNewUrlParser: true, useFindAndModify: false })
+	.connect(process.env.DATABASEURL, {
+		useNewUrlParser: true,
+		useFindAndModify: false
+	})
 	.then(() => {
 		console.log('connected to database');
 	})
