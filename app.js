@@ -7,7 +7,9 @@ const path = require('path'),
 	passport = require('passport'),
 	methodOverride = require('method-override'),
 	localStrategy = require('passport-local'),
-	dbURL = 'mongodb://localhost/yelpCamp',
+	dbURL =
+		'mongodb + srv://tiddal:yelpcamp@cluster0-pzjtz.mongodb.net/test?retryWrites=true&w=majority' ||
+		'mongodb://localhost/yelpCamp',
 	port = process.env.PORT || 3000,
 	express = require('express'),
 	expressSession = require('express-session'),
