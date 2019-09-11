@@ -8,7 +8,7 @@ const path = require('path'),
 	methodOverride = require('method-override'),
 	localStrategy = require('passport-local'),
 	dbURL = 'mongodb://localhost/yelpCamp',
-	port = 3000,
+	port = process.env.PORT || 3000,
 	express = require('express'),
 	expressSession = require('express-session'),
 	app = express(),
@@ -30,9 +30,7 @@ app
 	.use(flash())
 	.set('view engine', 'ejs')
 	.set('views', path.join(__dirname, 'views'))
-	.listen(port, () => {
-		console.log(`Serving on port: ${port}`);
-	});
+	.listen(port, process.env.IP);
 
 //	Passport
 const User = require('./models/user');
