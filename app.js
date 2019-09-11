@@ -18,7 +18,14 @@ const path = require('path'),
 
 //seedDB();
 //	Setup
-mongoose.connect(dbURL, { useNewUrlParser: true, useFindAndModify: false });
+mongoose
+	.connect(dbURL, { useNewUrlParser: true, useFindAndModify: false })
+	.then(() => {
+		console.log('connected to database');
+	})
+	.catch((err) => {
+		console.log(err.message);
+	});
 app
 	.use(bodyParser.urlencoded({ extended: true }))
 	.use(methodOverride('_method'))
