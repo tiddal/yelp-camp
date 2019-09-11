@@ -1,5 +1,6 @@
 //	Requirements
 // dbURL = 'mongodb://localhost:27017/yelpCamp'
+// dbURL = 'mongodb://localhost/yelpCamp'
 const path = require('path'),
 	bodyParser = require('body-parser'),
 	mongoose = require('mongoose'),
