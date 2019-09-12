@@ -19,7 +19,8 @@
 						<a href="#"><%= campground.name %></a>
 					</h4>
 					<h6 class="card-subtitle mb-2 text-muted">
-						Submitted by <%= campground.author.username %>
+						Submitted by <%= campground.author.username %>, <%=
+						moment(campground.createdAt).fromNow() %>
 					</h6>
 					<p class="card-text"><%= campground.description %></p>
 					<% if(user && campground.author.id.equals(user.id)){%>
@@ -46,7 +47,9 @@
 					<% campground.comments.forEach((comment) => { %>
 					<h6 class="card-title">
 						<strong><%= comment.author.username %></strong>
-						<span class="float-right">10 days ago</span>
+						<span class="float-right"
+							><%= moment(comment.createdAt).fromNow() %></span
+						>
 					</h6>
 					<p class="card-text"><%= comment.text %></p>
 					<% if(user && comment.author.id.equals(user.id)){%>
