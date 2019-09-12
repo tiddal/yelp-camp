@@ -43,6 +43,9 @@ app
 	.set('views', path.join(__dirname, 'views'))
 	.listen(port, process.env.IP);
 
+//	Moment.js
+app.locals.moment = require('moment');
+
 //	Passport
 const User = require('./models/user');
 app
