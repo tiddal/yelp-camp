@@ -3,6 +3,7 @@
 // dbURL = 'mongodb://localhost/yelpCamp'
 // dbURL = 'mongodb+srv://tiddal:golden96@cluster0-pzjtz.mongodb.net/test?retryWrites=true&w=majority'
 const path = require('path'),
+	env = require('dotenv').config(),
 	bodyParser = require('body-parser'),
 	mongoose = require('mongoose'),
 	flash = require('connect-flash'),
@@ -23,10 +24,12 @@ mongoose
 		useFindAndModify: false
 	})
 	.then(() => {
-		console.log('connected to database');
+		console.log(
+			`Successfully connected to the database on ${process.env.DATABASEURL}`
+		);
 	})
 	.catch((err) => {
-		console.log(err.message);
+		console.log(`Failed to connect connected to the database: ${err.message}`);
 	});
 app
 	.use(bodyParser.urlencoded({ extended: true }))
@@ -41,7 +44,9 @@ app
 	.use(flash())
 	.set('view engine', 'ejs')
 	.set('views', path.join(__dirname, 'views'))
-	.listen(port, process.env.IP);
+	.listen(port, process.env.IP, () => {
+		console.log(`Server running on port ${port}...`);
+	});
 
 //	Moment.js
 app.locals.moment = require('moment');
