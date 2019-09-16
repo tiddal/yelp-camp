@@ -6,20 +6,24 @@
 	</div>
 </header>
 <div class="row">
-	<form
-		action="/campgrounds/<%= campground %>/comments/<%= comment.id %>?_method=PUT"
-		method="POST"
-		class="col-10 col-md-8 col-lg-6 mx-auto"
-	>
-		<input
-			class="form-control my-2"
-			type="text"
-			name="comment[text]"
-			placeholder="Text"
-			value="<%= comment.text %>"
-		/>
-		<input class="btn btn-primary btn-block" type="submit" value="Submit" />
-	</form>
+	<div class="col-10 col-md-8 col-lg-6 mx-auto">
+		<form
+			action="/campgrounds/<%= campground %>/comments/<%= comment.id %>?_method=PUT"
+			method="POST"
+		>
+			<input
+				class="form-control my-2"
+				type="text"
+				name="comment[text]"
+				placeholder="Text"
+				value="<%= comment.text %>"
+			/>
+			<input class="btn btn-primary btn-block" type="submit" value="Submit" />
+		</form>
+		<div class="my-3">
+			<a href="/campgrounds/<%= campground %>"> Back</a>
+		</div>
+	</div>
 </div>
 
 <% include ../partials/footer %>
