@@ -44,6 +44,7 @@ app
 	.use(flash())
 	.set('view engine', 'ejs')
 	.set('views', path.join(__dirname, 'views'))
+	.use(express.static(__dirname + '/public'))
 	.listen(port, process.env.IP, () => {
 		console.log(`Server running on port ${port}...`);
 	});
