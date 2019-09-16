@@ -57,5 +57,18 @@ router.get('/logout', (req, res) => {
 		res.redirect('/campgrounds');
 });
 
+//	User	->	SHOW
+router.get('/users/:id', (req, res) => {
+	User.findById(req.params.id, (err, user) => {
+		err
+			? (req.flash('message', {
+					type: 'error',
+					content: 'Something went wrong...'
+			  }),
+			  res.redirect('back'))
+			: res.render('users/show', { user: user });
+	});
+});
+
 //	Export
 module.exports = router;
