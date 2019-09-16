@@ -43,8 +43,8 @@ router.get('/:id', (req, res) => {
 	Campground.findById(req.params.id)
 		.populate('comments')
 		.exec((err, campground) => {
-			err
-				? console.log(err)
+			err || !campground
+				? res.redirect('/campgrounds')
 				: res.render('campgrounds/Show', { campground: campground });
 		});
 });

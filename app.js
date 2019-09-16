@@ -74,3 +74,7 @@ app
 	.use(indexRoutes)
 	.use('/campgrounds', campgroundRoutes)
 	.use('/campgrounds/:id/comments', commentRoutes);
+
+app.get('*', (req, res) => {
+	res.redirect('/campgrounds');
+});
