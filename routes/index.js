@@ -61,12 +61,12 @@ router.get('/logout', (req, res) => {
 //	User	->	SHOW
 router.get('/users/:id', (req, res) => {
 	User.findById(req.params.id, (err, profile) => {
-		err
+		err || !profile
 			? (req.flash('message', {
 					type: 'error',
-					content: 'Something went wrong...'
+					content: 'User not found'
 			  }),
-			  res.redirect('back'))
+			  res.redirect('/campgrounds'))
 			: Campground.find({ 'author.id': profile.id }, (err, campgrounds) => {
 					err
 						? (req.flash('message', {
