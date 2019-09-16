@@ -9,11 +9,28 @@ const Campground = require('../models/campground'),
 
 //	Campgrounds	->	INDEX
 router.get('/', (req, res) => {
-	Campground.find({}, (err, allCampgrounds) => {
-		err
-			? console.log(err)
-			: res.render('campgrounds/Index', { campgrounds: allCampgrounds });
-	});
+	const perPage = 8,
+		pageQuery = parseInt(req.query.page),
+		pageNumber = pageQuery ? pageQuery : 1;
+	Campground.find({})
+		.skip(perPage * pageNumber - perPage)
+		.limit(perPage)
+		.exec((err, campgrounds) => {
+			Campground.count().exec((err, count) => {
+				err
+					? console.log(err)
+					: res.render('campgrounds/Index', {
+							campgrounds: campgrounds,
+							current: pageNumber,
+							pages: Math.ceil(count / perPage)
+					  });
+			});
+		});
+	// Campground.find({}, (err, allCampgrounds) => {
+	// 	err
+	// 		? console.log(err)
+	// 		: res.render('campgrounds/Index', { campgrounds: allCampgrounds });
+	// });
 });
 //	Campgrounds	->	NEW
 router.get('/new', middleware.isLoggedIn, (req, res) => {
