@@ -18,22 +18,25 @@ router.get('/register', (req, res) => {
 });
 //	Users	->	CREATE
 router.post('/register', (req, res) => {
-	User.register(
-		new User({ username: req.body.username }),
-		req.body.password,
-		(err) => {
-			err
-				? (req.flash('message', { type: 'error', content: err.message + '.' }),
-				  res.redirect('register'))
-				: passport.authenticate('local')(req, res, () => {
-						req.flash('message', {
-							type: 'success',
-							content: `Hello ${req.body.username}`
-						});
-						res.redirect('/campgrounds');
-				  });
-		}
-	);
+	//const newUser = new User(req.body.newUser);
+	const newUser = {
+		username: req.body.username,
+		firstName: req.body.firstName,
+		lastName: req.body.lastName,
+		email: req.body.email
+	};
+	User.register(newUser, req.body.password, (err) => {
+		err
+			? (req.flash('message', { type: 'error', content: err.message + '.' }),
+			  res.redirect('register'))
+			: passport.authenticate('local')(req, res, () => {
+					req.flash('message', {
+						type: 'success',
+						content: `Hello ${req.body.username}!`
+					});
+					res.redirect('/campgrounds');
+			  });
+	});
 });
 //	Users	->	LOGIN
 router.get('/login', (req, res) => {
