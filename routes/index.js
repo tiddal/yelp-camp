@@ -5,6 +5,7 @@ const express = require('express'),
 
 //  Schemas
 const User = require('../models/user');
+const Campground = require('../models/campground');
 
 //	Home
 router.get('/', (req, res) => {
@@ -59,14 +60,25 @@ router.get('/logout', (req, res) => {
 
 //	User	->	SHOW
 router.get('/users/:id', (req, res) => {
-	User.findById(req.params.id, (err, user) => {
+	User.findById(req.params.id, (err, profile) => {
 		err
 			? (req.flash('message', {
 					type: 'error',
 					content: 'Something went wrong...'
 			  }),
 			  res.redirect('back'))
-			: res.render('users/Show', { user: user });
+			: Campground.find({ 'author.id': profile.id }, (err, campgrounds) => {
+					err
+						? (req.flash('message', {
+								type: 'error',
+								content: 'Something went wrong...'
+						  }),
+						  res.redirect('back'))
+						: res.render('users/Show', {
+								profile: profile,
+								campgrounds: campgrounds
+						  });
+			  });
 	});
 });
 

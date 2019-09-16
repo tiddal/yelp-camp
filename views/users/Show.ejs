@@ -1,9 +1,65 @@
 <% include ../partials/header %>
-<div class="row">
-	<div class="col-md-4">
-		<h1 class="camel"><%= `${user.firstName} ${user.lastName}` %></h1>
-		<img src="<%= user.avatar %>" alt="User avatar" />
+<div class="row ">
+	<div class="col-md-3">
+		<div class="card">
+			<img
+				class="card-img-top d-none d-md-block"
+				src="<%= profile.avatar %>"
+				alt="<%= profile.username %> avatar"
+			/>
+
+			<div class="card-footer">
+				<h4 class="card-title">
+					@<%= profile.username %>
+					<h6 class="card-subtitle camelcase text-muted">
+						<%= `${profile.firstName} ${profile.lastName}` %>
+						<hr />
+						contact:
+						<a class="lowercase" href="maitto:<%= profile.email %>"
+							><%= profile.email %></a
+						>
+					</h6>
+				</h4>
+			</div>
+		</div>
 	</div>
-	<div class="col-md-8"></div>
+	<div class="col-md-9 mt-4 mt-md-0">
+		<h2>My Campgrounds:</h2>
+		<hr />
+		<% if(campgrounds.length > 0){ %> <% campgrounds.forEach((campground) => {
+		%>
+		<div class="card my-3">
+			<img class="card-img-top" src="<%= campground.img %>" alt="" />
+			<div class="card-body">
+				<h4 class="float-right">$<%= campground.price %>/night</h4>
+				<h4 class="card-title">
+					<a href="#"><%= campground.name %></a>
+				</h4>
+				<h6 class="card-subtitle mb-2 text-muted">
+					Submitted <%= moment(campground.createdAt).fromNow() %>
+				</h6>
+				<p class="card-text"><%= campground.description %></p>
+				<% if(user && campground.author.id.equals(user.id)){%>
+				<a
+					href="/campgrounds/<%= campground.id %>/edit"
+					class="btn btn-sm btn-warning"
+					>Edit</a
+				>
+				<form
+					action="/campgrounds/<%= campground.id %>?_method=DELETE"
+					method="POST"
+					class="d-inline"
+				>
+					<input class="btn btn-sm btn-danger" type="submit" value="Delete" />
+				</form>
+				<% }; %>
+			</div>
+		</div>
+		<% }); %> <% }else{ %>
+		<h5 class="text-center text-muted mt-5">
+			I haven't submitted any campgrounds yet :(
+		</h5>
+		<% }; %>
+	</div>
 </div>
 <% include ../partials/footer %>

@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
 	firstName: String,
 	lastName: String,
 	email: String,
-	avatar: { type: String, default: '' },
+	avatar: { type: String, default: 'https://picsum.photos/400' },
 	isAdmin: { type: Boolean, default: false }
 });
 userSchema.plugin(passportLocalMongoose);
