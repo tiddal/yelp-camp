@@ -66,7 +66,7 @@ router.get('/users/:id', (req, res) => {
 					content: 'Something went wrong...'
 			  }),
 			  res.redirect('back'))
-			: res.render('users/show', { user: user });
+			: res.render('users/Show', { user: user });
 	});
 });
 

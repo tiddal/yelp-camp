@@ -1,47 +1,45 @@
 <% include ../partials/header %>
 
-<div class="container mt-3">
-	<header class="jumbotron">
-		<div class="container">
-			<h1>Create a new Campground</h1>
-			<p>Just fill in the name of the camp and a picture of your choice!</p>
-		</div>
-	</header>
-	<div class="row">
-		<form
-			action="/campgrounds"
-			method="POST"
-			class="col-10 col-md-8 col-lg-6 mx-auto"
-		>
-			<input
-				class="form-control my-2"
-				type="text"
-				name="campground[name]"
-				placeholder="Name of the Campground"
-			/>
-			<input
-				class="form-control my-2"
-				type="text"
-				name="campground[img]"
-				placeholder="Image URL"
-			/>
-			<input
-				class="form-control my-2"
-				type="text"
-				name="campground[description]"
-				placeholder="Description"
-			/>
-			<input
-				class="form-control my-2"
-				type="number"
-				name="campground[price]"
-				placeholder="Price"
-				min="0.01"
-				step="0.01"
-			/>
-			<input class="btn btn-primary btn-block" type="submit" value="Submit" />
-		</form>
+<header class="jumbotron">
+	<div class="container">
+		<h1>Create a new Campground</h1>
+		<p>Just fill in the name of the camp and a picture of your choice!</p>
 	</div>
+</header>
+<div class="row">
+	<form
+		action="/campgrounds"
+		method="POST"
+		class="col-10 col-md-8 col-lg-6 mx-auto"
+	>
+		<input
+			class="form-control my-2"
+			type="text"
+			name="campground[name]"
+			placeholder="Name of the Campground"
+		/>
+		<input
+			class="form-control my-2"
+			type="text"
+			name="campground[img]"
+			placeholder="Image URL"
+		/>
+		<input
+			class="form-control my-2"
+			type="text"
+			name="campground[description]"
+			placeholder="Description"
+		/>
+		<input
+			class="form-control my-2"
+			type="number"
+			name="campground[price]"
+			placeholder="Price"
+			min="0.01"
+			step="0.01"
+		/>
+		<input class="btn btn-primary btn-block" type="submit" value="Submit" />
+	</form>
 </div>
 
 <% include ../partials/footer %>
