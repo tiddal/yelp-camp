@@ -1,7 +1,4 @@
 //	Requirements
-// dbURL = 'mongodb://localhost:27017/yelpCamp'
-// dbURL = 'mongodb://localhost/yelpCamp'
-// dbURL = 'mongodb+srv://tiddal:golden96@cluster0-pzjtz.mongodb.net/test?retryWrites=true&w=majority'
 const path = require('path'),
 	env = require('dotenv').config(),
 	bodyParser = require('body-parser'),
@@ -13,10 +10,8 @@ const path = require('path'),
 	port = process.env.PORT || 3000,
 	express = require('express'),
 	expressSession = require('express-session'),
-	app = express(),
-	seedDB = require('./seeds');
+	app = express();
 
-//seedDB();
 //	Setup
 mongoose
 	.connect(process.env.DATABASEURL, {

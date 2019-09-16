@@ -6,6 +6,7 @@
 
 - Create an account
 - Add new campgrounds
+- View, edit and delete your campgrounds
 - Add comments to existing campgrounds
 - Browse through campgrounds
 
@@ -35,6 +36,10 @@
 - [method-override](https://www.npmjs.com/package/method-override)
 - [passport](https://www.npmjs.com/package/passport)
 
-## Sidenotes:
+## Side Notes:
 
 I don't pretend to keep working on this project although I think it should be refactored to use the new ES8 and ES9 syntax.
+
+Additionaly, some more features could be added like searching, chating and likes!
+
+The app runs without errors but is poorly documented. It's up and running on [Heroku](https://polar-sea-05769.herokuapp.com/)
