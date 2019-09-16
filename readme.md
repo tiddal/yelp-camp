@@ -1,13 +1,13 @@
 # YelpCamp - The social network for campers!
 
-### My iteretion of Colt Steel's YelpCamp, from The Web Developer Bootcamp.
+### My iteration of Colt Steel's YelpCamp, from The Web Developer Bootcamp.
 
 ## Features:
 
 - Create an account
 - Add new campgrounds
 - View, edit and delete your campgrounds
-- Add comments to existing campgrounds
+- Add new comments to existing campgrounds
 - Browse through campgrounds
 
 ## Tecnologies used:
@@ -42,4 +42,4 @@ I don't pretend to keep working on this project although I think it should be re
 
 Additionaly, some more features could be added like searching, chating and likes!
 
-The app runs without errors but is poorly documented. It's up and running on [Heroku](https://polar-sea-05769.herokuapp.com/)
+The app runs without errors but is poorly documented. It's up and running on <a href="https://polar-sea-05769.herokuapp.com/" target="_blank">Heroku</a>!
