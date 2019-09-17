@@ -35,6 +35,8 @@
 - [dotenv](https://www.npmjs.com/package/dotenv)
 - [express-session](https://www.npmjs.com/package/express-session)
 - [method-override](https://www.npmjs.com/package/method-override)
+- [mongoose](https://www.npmjs.com/package/mongoose)
+- [moment](https://www.npmjs.com/package/moment)
 - [passport](https://www.npmjs.com/package/passport)
 
 ## Side Notes:
