@@ -9,6 +9,7 @@
 - View, edit and delete your campgrounds
 - Add new comments to existing campgrounds
 - Browse through campgrounds
+- Authentication and authorization
 
 ## Tecnologies used:
 
