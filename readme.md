@@ -11,7 +11,7 @@
 - Browse through campgrounds
 - Authentication and authorization
 
-## Tecnologies used:
+## Technologies used:
 
 - Front-end:
 
