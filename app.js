@@ -31,7 +31,7 @@ app
 	.use(methodOverride('_method'))
 	.use(
 		expressSession({
-			secret: 'toAbg8jYWt',
+			secret: process.env.SESSIONSECRET,
 			resave: false,
 			saveUninitialized: false
 		})
